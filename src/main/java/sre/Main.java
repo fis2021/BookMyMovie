@@ -11,7 +11,7 @@ import services.UserService;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class main extends Application {
+public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
