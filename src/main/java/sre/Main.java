@@ -21,10 +21,6 @@ public class Main extends Application {
         primaryStage.setTitle("Registration");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
-        Parent root1 = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-        primaryStage.setTitle("Login");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
     }
 
     private void initDirectory() {
