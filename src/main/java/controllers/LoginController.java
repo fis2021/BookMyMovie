@@ -21,7 +21,9 @@ public class LoginController {
     public void handleLoginAction() {
         try {
             UserService.login(usernameField.getText(), passwordField.getText());
-        } catch (Exception e) {
+        } catch (WrongPasswordException e) {
+            LoginMessage.setText(e.getMessage());
+        } catch(Exception e){
             LoginMessage.setText(e.getMessage());
         }
     }
