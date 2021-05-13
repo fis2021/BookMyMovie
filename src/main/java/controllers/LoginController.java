@@ -6,8 +6,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import exceptions.WrongPasswordException;
 import services.UserService;
+import java.util.Objects;
+import java.io.IOException;
+import javafx.event.ActionEvent;
+import model.User;
 
-public class LoginController {
+public class LoginController extends ChangeController{
 
     @FXML
     private Text LoginMessage;
@@ -18,9 +22,14 @@ public class LoginController {
 
 
     @FXML
-    public void handleLoginAction() {
+    public void handleLoginAction(ActionEvent event) throws  IOException {
         try {
-            UserService.login(usernameField.getText(), passwordField.getText());
+            User user = UserService.login(usernameField.getText(), passwordField.getText());
+            if (Objects.equals(user.getRole(), "Customer")) {
+                changeScene(event, "login.fxml");
+            } else {
+                changeScene(event, "cinemaMenu.fxml");
+            }
         } catch (Exception e) {
             LoginMessage.setText(e.getMessage());
         }

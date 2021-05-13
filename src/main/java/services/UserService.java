@@ -6,11 +6,12 @@ import exceptions.UsernameAlreadyExistsException;
 import exceptions.WrongPasswordException;
 import exceptions.SessionAlreadyExistsException;
 import model.User;
+import model.Movie;
+import exceptions.MovieException;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 import java.util.Objects;
 
 import static services.FileSystemService.getPathToFile;
@@ -19,20 +20,43 @@ import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 public final class UserService {
 
     private static ObjectRepository<User> userRepository;
+    private static ObjectRepository<Movie> movieRepository;
     private static Nitrite database;
     private static User loggedInUser;
-
+    //"registration-example
+    //"test", "test"
     public static void initDatabase() {
         database = Nitrite.builder()
-                .filePath(getPathToFile("registration-example.db").toFile())
-                .openOrCreate("test", "test");
-
+                .filePath(getPathToFile("BookMyMovie.db").toFile())
+                .openOrCreate();
         userRepository = database.getRepository(User.class);
+        movieRepository = database.getRepository(Movie.class);
     }
 
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
         userRepository.insert(new User(username, encodePassword(username, password), role));
+    }
+    public static void addMovie(String name, String genre, String description){
+        //checkMovieDoesNotAlreadyExist(name);
+        movieRepository.insert(new Movie(name, genre, description));
+    }
+
+    public static void deleteMovie(String name) throws MovieException{
+        Movie movie = findMovie(name);
+        if (movie == null) {
+            throw new MovieException();
+        }else{
+            getMovieRepo().remove(movie);
+        }
+    }
+
+    protected static ObjectRepository<Movie> getMovieRepo() {
+        return movieRepository;
+    }
+
+    public static Movie findMovie(String name) {
+        return getMovieRepo().find(eq("name", name)).firstOrDefault();
     }
 
     public static User findUser(String username) {
@@ -42,6 +66,7 @@ public final class UserService {
     protected static ObjectRepository<User> getUserRepo() {
         return userRepository;
     }
+
     public static User login(String username, String password) throws Exception {
         User user = findUser(username);
         if (user == null) {
@@ -61,6 +86,13 @@ public final class UserService {
             throw new SessionAlreadyExistsException();
         }
         loggedInUser = user;
+    }
+
+    public static void logout() {
+        destroySession();
+    }
+    public static void destroySession() {
+        loggedInUser = null;
     }
 
     public static void closeDatabase() {
