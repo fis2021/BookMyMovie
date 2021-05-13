@@ -24,11 +24,12 @@ public class AddMovieController extends ChangeController {
             addMovieMessage.setText("Successfully added!");
             changeScene(event, "cinemaMenu.fxml");
         } catch (Exception e) {
-            //LoginMessage.setText(e.getMessage());
+            addMovieMessage.setText(e.getMessage());
         }
     }
     @FXML
     public void handleBackAction(ActionEvent event) throws  IOException{
         changeScene(event, "cinemaMenu.fxml");
     }
+
 }

@@ -8,7 +8,7 @@ import exceptions.SessionAlreadyExistsException;
 import model.User;
 import model.Movie;
 import exceptions.MovieException;
-
+import exceptions.MovienameAlreadyExistsException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -23,8 +23,7 @@ public final class UserService {
     private static ObjectRepository<Movie> movieRepository;
     private static Nitrite database;
     private static User loggedInUser;
-    //"registration-example
-    //"test", "test"
+
     public static void initDatabase() {
         database = Nitrite.builder()
                 .filePath(getPathToFile("BookMyMovie.db").toFile())
@@ -37,8 +36,9 @@ public final class UserService {
         checkUserDoesNotAlreadyExist(username);
         userRepository.insert(new User(username, encodePassword(username, password), role));
     }
-    public static void addMovie(String name, String genre, String description){
-        //checkMovieDoesNotAlreadyExist(name);
+
+    public static void addMovie(String name, String genre, String description) throws MovienameAlreadyExistsException{
+        checkMovieDoesNotAlreadyExist(name);
         movieRepository.insert(new Movie(name, genre, description));
     }
 
@@ -91,6 +91,7 @@ public final class UserService {
     public static void logout() {
         destroySession();
     }
+
     public static void destroySession() {
         loggedInUser = null;
     }
@@ -112,15 +113,21 @@ public final class UserService {
         }
     }
 
+    private static void checkMovieDoesNotAlreadyExist(String name) throws MovienameAlreadyExistsException {
+        for (Movie movie : movieRepository.find()) {
+            if (Objects.equals(name, movie.getName()))
+                throw new MovienameAlreadyExistsException(name);
+        }
+    }
+
     private static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
         byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));
 
-        // This is the way a password should be encoded when checking the credentials
         return new String(hashedPassword, StandardCharsets.UTF_8)
-                .replace("\"", ""); //to be able to save in JSON format
+                .replace("\"", "");
     }
 
     private static MessageDigest getMessageDigest() {
@@ -132,6 +139,5 @@ public final class UserService {
         }
         return md;
     }
-
 
 }

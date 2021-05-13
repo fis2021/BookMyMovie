@@ -2,6 +2,7 @@ services\FileSystemService.class
 controllers\ChangeController.class
 controllers\CinemaMenuController.class
 controllers\RegistrationController.class
+exceptions\MovienameAlreadyExistsException.class
 services\UserService.class
 exceptions\MovieException.class
 exceptions\UsernameAlreadyExistsException.class
