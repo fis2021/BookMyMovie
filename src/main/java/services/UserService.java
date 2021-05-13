@@ -23,6 +23,7 @@ public final class UserService {
     private static ObjectRepository<Movie> movieRepository;
     private static Nitrite database;
     private static User loggedInUser;
+    private static int ok;
 
     public static void initDatabase() {
         database = Nitrite.builder()
@@ -43,11 +44,21 @@ public final class UserService {
     }
 
     public static void deleteMovie(String name) throws MovieException{
-        Movie movie = findMovie(name);
+        /*Movie movie = findMovie(name);
         if (movie == null) {
             throw new MovieException();
         }else{
             getMovieRepo().remove(movie);
+        }*/
+        ok=0;
+        for (Movie movie : movieRepository.find()) {
+            if (Objects.equals(name, movie.getName())) {
+                getMovieRepo().remove(movie);
+                ok=1;
+            }
+        }
+        if(ok==0){
+            throw new MovieException();
         }
     }
 

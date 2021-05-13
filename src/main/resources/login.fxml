@@ -20,7 +20,7 @@
 
 <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-<Text fx:id="loginMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+<Text fx:id="LoginMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
 <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
     <Button onAction="#handleLoginAction" text="Login"/>
 </HBox>
