@@ -1,0 +1,9 @@
+services\FileSystemService.class
+controllers\LoginController.class
+controllers\RegistrationController.class
+services\UserService.class
+exceptions\UsernameAlreadyExistsException.class
+exceptions\WrongPasswordException.class
+sre\Main.class
+exceptions\SessionAlreadyExistsException.class
+model\User.class
