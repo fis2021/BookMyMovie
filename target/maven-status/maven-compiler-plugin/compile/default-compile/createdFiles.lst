@@ -1,9 +1,16 @@
 services\FileSystemService.class
-controllers\LoginController.class
+controllers\ChangeController.class
+controllers\CinemaMenuController.class
 controllers\RegistrationController.class
 services\UserService.class
+exceptions\MovieException.class
 exceptions\UsernameAlreadyExistsException.class
 exceptions\WrongPasswordException.class
 sre\Main.class
+model\Movie.class
+controllers\DeleteMovieController.class
+controllers\AddMovieController.class
+controllers\WelcomeController.class
+controllers\LoginController.class
 exceptions\SessionAlreadyExistsException.class
 model\User.class
