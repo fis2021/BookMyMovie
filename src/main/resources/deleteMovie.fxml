@@ -16,9 +16,12 @@
 
     <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
+    <Text fx:id="deleteMovieMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Button onAction="#handleDeleteMovieAction" text="Delete"/>
     </HBox>
+
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
         <Button onAction="#handleBackAction" text="Back"/>
     </HBox>

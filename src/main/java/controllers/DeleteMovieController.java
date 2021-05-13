@@ -6,7 +6,6 @@ import javafx.scene.text.Text;
 import services.UserService;
 import javafx.event.ActionEvent;
 import java.io.IOException;
-import exceptions.MovieException;
 
 public class DeleteMovieController extends ChangeController{
 
@@ -17,10 +16,9 @@ public class DeleteMovieController extends ChangeController{
     @FXML
     public void handleDeleteMovieAction(ActionEvent event) throws IOException{
          try {
-            UserService.deleteMovie(nameField.getText());
-                deleteMovieMessage.setText("Successfully deleted!");
+                UserService.deleteMovie(nameField.getText());
                 changeScene(event, "cinemaMenu.fxml");
-            } catch (MovieException e) {
+            } catch (Exception e) {
                 deleteMovieMessage.setText(e.getMessage());
             }
     }
