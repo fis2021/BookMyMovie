@@ -1,5 +1,7 @@
 package services;
 
+import model.Booking;
+import model.Screening;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import exceptions.UsernameAlreadyExistsException;
@@ -23,6 +25,10 @@ public final class UserService {
     private static ObjectRepository<Movie> movieRepository;
     private static Nitrite database;
     private static User loggedInUser;
+    private static ObjectRepository<Booking> bookingRepo;
+    private static ObjectRepository<Screening> screeningRepo;
+    private static Screening selectedScreening;
+
     //"registration-example
     //"test", "test"
     public static void initDatabase() {
@@ -31,6 +37,12 @@ public final class UserService {
                 .openOrCreate();
         userRepository = database.getRepository(User.class);
         movieRepository = database.getRepository(Movie.class);
+        bookingRepo = database.getRepository(Booking.class);
+        screeningRepo = database.getRepository(Screening.class);
+    }
+
+    protected static ObjectRepository<Booking> getBookingRepo() {
+        return bookingRepo;
     }
 
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
@@ -53,6 +65,17 @@ public final class UserService {
 
     protected static ObjectRepository<Movie> getMovieRepo() {
         return movieRepository;
+    }
+    protected static ObjectRepository<Screening> getScreeningRepo() {
+        return screeningRepo;
+    }
+
+    public static Screening getSelectedScreening(){
+        return selectedScreening;
+    }
+
+    public static User getLoggedInUser() {
+        return loggedInUser;
     }
 
     public static Movie findMovie(String name) {
