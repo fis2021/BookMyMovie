@@ -34,4 +34,8 @@ _Book tickets_
 
 _Add reviews about movies_
 
-
+# Technologies
+- Java 15
+- JavaFX
+- Maven
+- Nitrite Java
