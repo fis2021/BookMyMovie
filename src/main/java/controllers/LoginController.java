@@ -26,7 +26,7 @@ public class LoginController extends ChangeController{
         try {
             User user = UserService.login(usernameField.getText(), passwordField.getText());
             if (Objects.equals(user.getRole(), "Customer")) {
-                changeScene(event, "login.fxml");
+                changeScene(event, "customerMenu.fxml");
             } else {
                 changeScene(event, "cinemaMenu.fxml");
             }
