@@ -36,4 +36,9 @@ public class RegistrationController extends ChangeController{
             registrationMessage.setText(e.getMessage());
         }
     }
+
+    @FXML
+    public void handleBackAction(ActionEvent event) throws  IOException{
+        changeScene(event, "welcome.fxml");
+    }
 }
