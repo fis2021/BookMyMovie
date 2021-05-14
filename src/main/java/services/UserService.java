@@ -43,6 +43,19 @@ public final class UserService {
         movieRepository.insert(new Movie(name, genre, description));
     }
 
+    public static void addRate(String name, int rate) throws MovieException{
+        ok = 0;
+        for (Movie movie1 : movieRepository.find()) {
+            if (Objects.equals(name, movie1.getName())) {
+                movie1.setRate(rate);
+                ok=1;
+            }
+        }
+        if(ok==0){
+            throw new MovieException();
+        }
+    }
+
     public static void deleteMovie(String name) throws MovieException{
         /*Movie movie = findMovie(name);
         if (movie == null) {

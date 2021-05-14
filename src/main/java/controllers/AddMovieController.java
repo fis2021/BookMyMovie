@@ -22,7 +22,7 @@ public class AddMovieController extends ChangeController {
         try {
             UserService.addMovie(nameField.getText(), genreField.getText(), descriptionField.getText());
             addMovieMessage.setText("Successfully added!");
-            changeScene(event, "cinemaMenu.fxml");
+            //changeScene(event, "cinemaMenu.fxml");
         } catch (Exception e) {
             addMovieMessage.setText(e.getMessage());
         }

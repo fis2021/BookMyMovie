@@ -8,6 +8,8 @@ public class Movie{
     private String name;
     private String genre;
     private String description;
+    private static int contor=0;
+    private int[] ratings = new int[20];
 
     public Movie(String name, String genre, String description) {
         this.name = name;
@@ -22,20 +24,21 @@ public class Movie{
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRate(int r) {
+        ratings[contor]=r;
+        contor++;
     }
 
-    public String getGenre() {
-        return genre;
+    public int getContor() {
+        return contor;
     }
 
     public void setGenre(String genre) {
         this.genre = genre;
     }
 
-    public String getDescription() {
-        return description;
+    public int[] getRatings() {
+        return ratings;
     }
 
     public void setDescription(String description) {

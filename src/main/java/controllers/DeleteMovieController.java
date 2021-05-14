@@ -17,7 +17,8 @@ public class DeleteMovieController extends ChangeController{
     public void handleDeleteMovieAction(ActionEvent event) throws IOException{
          try {
                 UserService.deleteMovie(nameField.getText());
-                changeScene(event, "cinemaMenu.fxml");
+                deleteMovieMessage.setText("Successfully deleted!");
+                //changeScene(event, "cinemaMenu.fxml");
             } catch (Exception e) {
                 deleteMovieMessage.setText(e.getMessage());
             }

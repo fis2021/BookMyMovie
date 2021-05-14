@@ -18,11 +18,16 @@ public class CustomerMenuController extends ChangeController {
         changeScene(event, "buy.fxml");
     }
     @FXML
+    public void handleRateAction(ActionEvent event) throws  IOException{
+        changeScene(event, "rate.fxml");
+    }
+    @FXML
     public void handleGenreAction(ActionEvent event) throws  IOException{
         changeScene(event, "search.fxml");
     }
     @FXML
     public void handleLogoutAction(ActionEvent event) throws  IOException{
+        UserService.logout();
         changeScene(event, "login.fxml");
     }
 
