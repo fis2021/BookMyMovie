@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<AnchorPane maxHeight="400" maxWidth="400" minHeight="400" minWidth="400" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GenreController" >
+    <children>
+        <VBox layoutX="112.0" layoutY="100.0" prefHeight="100.0" prefWidth=".0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="90.0">
+
+            <TableView fx:id="table" prefHeight="280.0" >
+                <columns>
+                    <TableColumn maxWidth="280.0" prefWidth="100.0" text="Genre" />
+                    <TableColumn maxWidth="280.0" prefWidth="100.0" text="Movie Name"  />
+                </columns></TableView>
+        </VBox>
+        <GridPane layoutX="40" layoutY="10.0" prefHeight="60.0" prefWidth="215.0">
+            <children>
+                <Text  fill="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Find Movies Based On Genre">
+                    <font>
+                        <Font name="Arial" size="16.0" />
+                    </font>
+                </Text>
+            </children>
+        </GridPane>
+        <VBox layoutX="112.0" layoutY="100.0" prefHeight="100.0" prefWidth=".0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
+            <Button onAction="#handleBackAction" mnemonicParsing="false" text="Back">
+                <VBox.margin>
+                    <Insets left="20.0" top="4.0" />
+                </VBox.margin>
+            </Button>
+        </VBox>
+    </children>
+</AnchorPane>

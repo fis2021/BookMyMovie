@@ -19,7 +19,7 @@ public class CustomerMenuController extends ChangeController {
     }
     @FXML
     public void handleGenreAction(ActionEvent event) throws  IOException{
-        changeScene(event, "search.fxml");
+        changeScene(event, "genre.fxml");
     }
     @FXML
     public void handleLogoutAction(ActionEvent event) throws  IOException{
