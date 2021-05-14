@@ -30,4 +30,7 @@
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Button onAction="#handleRegisterAction" text="Register"/>
     </HBox>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <Button onAction="#handleBackAction" text="Back"/>
+    </HBox>
 </GridPane>
