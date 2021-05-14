@@ -10,7 +10,7 @@
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
-    <Text id="title-text" text="BookMyMovie" GridPane.columnIndex="0" GridPane.columnSpan="2"
+    <Text id="title-text" text="Registration" GridPane.columnIndex="0" GridPane.columnSpan="2"
           GridPane.rowIndex="0"/>
 
     <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
@@ -29,5 +29,8 @@
     <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Button onAction="#handleRegisterAction" text="Register"/>
+    </HBox>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <Button onAction="#handleBackAction" text="Back"/>
     </HBox>
 </GridPane>
