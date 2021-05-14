@@ -2,6 +2,8 @@ package controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import services.UserService;
+
 import java.io.IOException;
 
 public class WelcomeController extends ChangeController{
@@ -14,4 +16,5 @@ public class WelcomeController extends ChangeController{
     public void handleLoginAction(ActionEvent event) throws  IOException {
         changeScene(event, "login.fxml");
     }
+
 }

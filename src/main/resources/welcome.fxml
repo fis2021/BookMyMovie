@@ -20,4 +20,5 @@
     <HBox alignment="bottom_center" GridPane.columnIndex="0" GridPane.rowIndex="5">
         <Button onAction="#handleLoginAction" text="Login"/>
     </HBox>
+
 </GridPane>
