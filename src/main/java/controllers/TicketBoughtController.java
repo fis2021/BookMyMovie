@@ -7,14 +7,14 @@ import services.UserService;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 
-public class TicketController extends ChangeController {
+public class TicketBoughtController extends ChangeController {
 
     @FXML
-    private Text ticketMessage;
+    private Text ticketboughtMessage;
 
     @FXML
     public void handleCheckAction(ActionEvent event) throws  IOException{
-        ticketMessage.setText("Ticket Booked Successfully!");
+        ticketboughtMessage.setText("Ticket Succesfully Bought!");
     }
 
     @FXML
