@@ -35,4 +35,9 @@ public class LoginController extends ChangeController{
         }
     }
 
+    @FXML
+    public void handleBackAction(ActionEvent event) throws  IOException{
+        changeScene(event, "welcome.fxml");
+    }
+
 }
