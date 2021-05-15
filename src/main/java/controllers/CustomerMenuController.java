@@ -53,8 +53,6 @@ public class CustomerMenuController extends ChangeController {
         table.setItems(observableList);
     }
 
-
-
     @FXML
     public void handleBookSelectedAction(ActionEvent event) throws  IOException {
         changeScene(event, "booking.fxml");
