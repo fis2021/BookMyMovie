@@ -13,7 +13,9 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import static services.FileSystemService.getPathToFile;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
@@ -38,9 +40,18 @@ public final class UserService {
         userRepository.insert(new User(username, encodePassword(username, password), role));
     }
 
-    public static void addMovie(String name, String genre, String description) throws MovienameAlreadyExistsException{
+    public static void addMovie(String name, String genre, String description) throws MovienameAlreadyExistsException {
         checkMovieDoesNotAlreadyExist(name);
         movieRepository.insert(new Movie(name, genre, description));
+    }
+
+    public static List<Movie> findMovies() {
+        return getMovieRepo().find().toList();
+
+    }
+
+    public static Movie findMovie(String name) {
+        return getMovieRepo().find(eq("name", name)).firstOrDefault();
     }
 
     public static void addRate(String name, int rate) throws MovieException{
@@ -79,9 +90,6 @@ public final class UserService {
         return movieRepository;
     }
 
-    public static Movie findMovie(String name) {
-        return getMovieRepo().find(eq("name", name)).firstOrDefault();
-    }
 
     public static User findUser(String username) {
         return getUserRepo().find(eq("username", username)).firstOrDefault();

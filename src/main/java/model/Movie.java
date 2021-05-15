@@ -33,6 +33,14 @@ public class Movie{
         return contor;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     public void setGenre(String genre) {
         this.genre = genre;
     }
