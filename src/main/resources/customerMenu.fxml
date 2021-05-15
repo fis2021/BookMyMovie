@@ -9,9 +9,11 @@
     <children>
         <VBox layoutX="112.0" layoutY="100.0" prefHeight="100.0" prefWidth=".0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="200.0">
 
-            <TableView  prefHeight="280.0" >
+            <TableView fx:id="table" prefHeight="280.0" >
                 <columns>
-                    <TableColumn maxWidth="280.0" prefWidth="100.0" text="Available Movies"  />
+                    <TableColumn fx:id="NameColumn" maxWidth="280.0" prefWidth="100.0" text="Available Movies"  />
+                    <TableColumn fx:id="GenreColumn" maxWidth="280.0" prefWidth="100.0" text="Genre"  />
+                    <TableColumn fx:id="DescriptionColumn" maxWidth="280.0" prefWidth="100.0" text="Description"  />
                 </columns></TableView>
         </VBox>
         <GridPane layoutX="40" layoutY="10.0" prefHeight="60.0" prefWidth="215.0">
