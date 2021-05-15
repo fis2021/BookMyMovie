@@ -8,7 +8,8 @@ public class Movie{
     private String name;
     private String genre;
     private String description;
-    private static int contor=0;
+    private static int contor=1;
+    private String rating="";
     private int[] ratings = new int[20];
 
     public Movie(String name, String genre, String description) {
@@ -25,7 +26,7 @@ public class Movie{
     }
 
     public void setRate(int r) {
-        ratings[contor]=r;
+        ratings[contor-1]=r;
         contor++;
     }
 
@@ -45,8 +46,14 @@ public class Movie{
         this.genre = genre;
     }
 
-    public int[] getRatings() {
-        return ratings;
+    public String getRating() {
+        int s=0;
+        int r=0;
+        for (int i=1; i<contor; i++){
+            s = s + ratings[i-1];
+        }
+        r= s/contor;
+             return rating+r;
     }
 
     public void setDescription(String description) {
