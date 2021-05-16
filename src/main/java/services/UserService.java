@@ -12,6 +12,7 @@ import exceptions.MovienameAlreadyExistsException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static services.FileSystemService.getPathToFile;
@@ -42,7 +43,10 @@ public final class UserService {
         checkMovieDoesNotAlreadyExist(name);
         movieRepository.insert(new Movie(name, genre, description));
     }
+    public static List<Movie> findMovies() {
+        return getMovieRepo().find().toList();
 
+    }
     public static void deleteMovie(String name) throws MovieException{
         /*Movie movie = findMovie(name);
         if (movie == null) {
