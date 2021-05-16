@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import exceptions.WrongPasswordException;
 import services.UserService;
 import java.util.Objects;
 import java.io.IOException;
