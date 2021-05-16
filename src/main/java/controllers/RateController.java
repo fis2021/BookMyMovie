@@ -3,10 +3,8 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import exceptions.UsernameAlreadyExistsException;
 import services.UserService;
 import java.io.IOException;
 

@@ -1,15 +1,12 @@
 package controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
 import services.UserService;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import model.Movie;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,7 +26,6 @@ public class CustomerMenuController extends ChangeController {
 
     @FXML
     public void initialize() {
-        //Movie movie = UserService.findMovie();
 
         ObservableList<Movie> observableList =
                 FXCollections.observableList(UserService.findMovies());

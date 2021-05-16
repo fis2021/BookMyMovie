@@ -8,10 +8,6 @@ import services.UserService;
 public class CinemaMenuController extends ChangeController {
 
     @FXML
-    public void handleRatingAction(ActionEvent event) throws  IOException{
-        changeScene(event, "ratings.fxml");
-    }
-    @FXML
     public void handleAddMovieAction(ActionEvent event) throws  IOException{
         changeScene(event, "addMovie.fxml");
     }
@@ -29,4 +25,5 @@ public class CinemaMenuController extends ChangeController {
     public void handleRateAction(ActionEvent event) throws  IOException {
         changeScene(event, "ratings.fxml");
     }
+
 }

@@ -30,20 +30,12 @@ public class Movie{
         contor++;
     }
 
-    public int getContor() {
-        return contor;
-    }
-
     public String getGenre() {
         return genre;
     }
 
     public String getDescription() {
         return description;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
     }
 
     public String getRating() {
@@ -54,10 +46,6 @@ public class Movie{
         }
         r= s/contor;
              return rating+r;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     @Override
@@ -76,11 +64,5 @@ public class Movie{
     public int hashCode() {
         return Objects.hash(name);
     }
-    /*@Override
-    public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (genre != null ? genre.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
-    }*/
+
 }
