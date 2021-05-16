@@ -8,8 +8,9 @@ public class Movie{
     private String name;
     private String genre;
     private String description;
-    private static int contor=0;
+    private static int contor=1;
     private int[] ratings = new int[100];
+    private String rating="";
 
     public Movie(String name, String genre, String description) {
         this.name = name;
@@ -25,12 +26,8 @@ public class Movie{
     }
 
     public void setRate(int r) {
-        ratings[contor]=r;
+        ratings[contor-1]=r;
         contor++;
-    }
-
-    public int getContor() {
-        return contor;
     }
 
     public String getGenre() {
@@ -41,16 +38,14 @@ public class Movie{
         return description;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public int[] getRatings() {
-        return ratings;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public String getRating() {
+        int s=0;
+        int r=0;
+        for (int i=1; i<contor; i++){
+            s = s + ratings[i-1];
+        }
+        r= s/contor;
+             return rating+r;
     }
 
     @Override
@@ -69,11 +64,5 @@ public class Movie{
     public int hashCode() {
         return Objects.hash(name);
     }
-    /*@Override
-    public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (genre != null ? genre.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
-    }*/
+
 }

@@ -12,10 +12,9 @@ import exceptions.MovienameAlreadyExistsException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Objects;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Objects;
+import java.util.List;
 import static services.FileSystemService.getPathToFile;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
@@ -44,12 +43,10 @@ public final class UserService {
         checkMovieDoesNotAlreadyExist(name);
         movieRepository.insert(new Movie(name, genre, description));
     }
-
     public static List<Movie> findMovies() {
         return getMovieRepo().find().toList();
 
     }
-
     public static Movie findMovie(String name) {
         return getMovieRepo().find(eq("name", name)).firstOrDefault();
     }
@@ -68,12 +65,6 @@ public final class UserService {
     }
 
     public static void deleteMovie(String name) throws MovieException{
-        /*Movie movie = findMovie(name);
-        if (movie == null) {
-            throw new MovieException();
-        }else{
-            getMovieRepo().remove(movie);
-        }*/
         ok=0;
         for (Movie movie : movieRepository.find()) {
             if (Objects.equals(name, movie.getName())) {

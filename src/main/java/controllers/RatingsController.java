@@ -1,24 +1,27 @@
 package controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import services.UserService;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import model.Movie;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 
-public class CustomerMenuController extends ChangeController {
-
+public class RatingsController extends ChangeController {
 
     @FXML
     private TableColumn<Movie, String> NameColumn;
     @FXML
-    private TableColumn<Movie, String> DescriptionColumn;
+    private TableColumn<Movie, String> RateColumn;
     @FXML
     private TableView<Movie> table;
 
@@ -33,10 +36,9 @@ public class CustomerMenuController extends ChangeController {
                     UserService.findMovie(cellData.getValue().getName()).getName()
             );
         });
-
-        DescriptionColumn.setCellValueFactory(cellData -> {
+        RateColumn.setCellValueFactory(cellData -> {
             return new SimpleStringProperty(
-                    UserService.findMovie(cellData.getValue().getName()).getDescription()
+                    UserService.findMovie(cellData.getValue().getName()).getRating()
             );
         });
 
@@ -44,25 +46,8 @@ public class CustomerMenuController extends ChangeController {
     }
 
     @FXML
-    public void handleBookSelectedAction(ActionEvent event) throws  IOException {
-        changeScene(event, "booking.fxml");
-    }
-    @FXML
-    public void handleBuySelectedAction(ActionEvent event) throws  IOException{
-        changeScene(event, "buy.fxml");
-    }
-    @FXML
-    public void handleRateAction(ActionEvent event) throws  IOException{
-        changeScene(event, "rate.fxml");
-    }
-    @FXML
-    public void handleGenreAction(ActionEvent event) throws  IOException{
-        changeScene(event, "genre.fxml");
-    }
-    @FXML
-    public void handleLogoutAction(ActionEvent event) throws  IOException{
-        UserService.logout();
-        changeScene(event, "login.fxml");
+    public void handleBackAction(ActionEvent event) throws  IOException{
+        changeScene(event, "cinemaMenu.fxml");
     }
 
 }

@@ -24,5 +24,8 @@
     <HBox alignment="center" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <Button onAction="#handleLogoutAction" text="Logout"/>
     </HBox>
+    <HBox alignment="center" GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <Button onAction="#handleRateAction" text="Ratings"/>
+    </HBox>
 
 </GridPane>
