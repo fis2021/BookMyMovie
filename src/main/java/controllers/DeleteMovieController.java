@@ -14,10 +14,10 @@ public class DeleteMovieController extends ChangeController{
     @FXML
     private TextField nameField;
     @FXML
-    public void handleDeleteMovieAction(ActionEvent event) throws IOException{
+    public void handleDeleteMovieAction(){
          try {
                 UserService.deleteMovie(nameField.getText());
-                changeScene(event, "cinemaMenu.fxml");
+                deleteMovieMessage.setText("Successfully deleted!");
             } catch (Exception e) {
                 deleteMovieMessage.setText(e.getMessage());
             }

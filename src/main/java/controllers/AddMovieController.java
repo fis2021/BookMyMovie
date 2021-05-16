@@ -18,11 +18,10 @@ public class AddMovieController extends ChangeController {
     @FXML
     private TextField descriptionField;
     @FXML
-    public void handleAddMovieAction(ActionEvent event) throws  IOException {
+    public void handleAddMovieAction(){
         try {
             UserService.addMovie(nameField.getText(), genreField.getText(), descriptionField.getText());
             addMovieMessage.setText("Successfully added!");
-            changeScene(event, "cinemaMenu.fxml");
         } catch (Exception e) {
             addMovieMessage.setText(e.getMessage());
         }

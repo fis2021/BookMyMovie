@@ -14,7 +14,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Objects;
-
+import java.util.List;
 import static services.FileSystemService.getPathToFile;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
@@ -39,7 +39,7 @@ public final class UserService {
         userRepository.insert(new User(username, encodePassword(username, password), role));
     }
 
-    public static void addMovie(String name, String genre, String description) throws MovienameAlreadyExistsException{
+    public static void addMovie(String name, String genre, String description) throws MovienameAlreadyExistsException {
         checkMovieDoesNotAlreadyExist(name);
         movieRepository.insert(new Movie(name, genre, description));
     }
@@ -47,13 +47,24 @@ public final class UserService {
         return getMovieRepo().find().toList();
 
     }
-    public static void deleteMovie(String name) throws MovieException{
-        /*Movie movie = findMovie(name);
-        if (movie == null) {
+    public static Movie findMovie(String name) {
+        return getMovieRepo().find(eq("name", name)).firstOrDefault();
+    }
+
+    public static void addRate(String name, int rate) throws MovieException{
+        ok = 0;
+        for (Movie movie1 : movieRepository.find()) {
+            if (Objects.equals(name, movie1.getName())) {
+                movie1.setRate(rate);
+                ok=1;
+            }
+        }
+        if(ok==0){
             throw new MovieException();
-        }else{
-            getMovieRepo().remove(movie);
-        }*/
+        }
+    }
+
+    public static void deleteMovie(String name) throws MovieException{
         ok=0;
         for (Movie movie : movieRepository.find()) {
             if (Objects.equals(name, movie.getName())) {
@@ -70,9 +81,6 @@ public final class UserService {
         return movieRepository;
     }
 
-    public static Movie findMovie(String name) {
-        return getMovieRepo().find(eq("name", name)).firstOrDefault();
-    }
 
     public static User findUser(String username) {
         return getUserRepo().find(eq("username", username)).firstOrDefault();

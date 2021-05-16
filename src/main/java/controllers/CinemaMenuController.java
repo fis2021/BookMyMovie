@@ -20,4 +20,10 @@ public class CinemaMenuController extends ChangeController {
         UserService.logout();
         changeScene(event, "login.fxml");
     }
+
+    @FXML
+    public void handleRateAction(ActionEvent event) throws  IOException {
+        changeScene(event, "ratings.fxml");
+    }
+
 }
