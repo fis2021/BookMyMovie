@@ -12,7 +12,6 @@
             <TableView fx:id="table" prefHeight="280.0" >
                 <columns>
                     <TableColumn fx:id="NameColumn" maxWidth="280.0" prefWidth="100.0" text="Available Movies"  />
-                    <TableColumn fx:id="GenreColumn" maxWidth="280.0" prefWidth="100.0" text="Genre"  />
                     <TableColumn fx:id="DescriptionColumn" maxWidth="280.0" prefWidth="100.0" text="Description"  />
                 </columns></TableView>
         </VBox>
