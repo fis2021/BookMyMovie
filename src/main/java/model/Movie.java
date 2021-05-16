@@ -9,8 +9,8 @@ public class Movie{
     private String genre;
     private String description;
     private static int contor=1;
+    private int[] ratings = new int[100];
     private String rating="";
-    private int[] ratings = new int[20];
 
     public Movie(String name, String genre, String description) {
         this.name = name;

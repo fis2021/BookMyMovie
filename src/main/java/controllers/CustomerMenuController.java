@@ -18,8 +18,6 @@ public class CustomerMenuController extends ChangeController {
     @FXML
     private TableColumn<Movie, String> NameColumn;
     @FXML
-    private TableColumn<Movie, String> GenreColumn;
-    @FXML
     private TableColumn<Movie, String> DescriptionColumn;
     @FXML
     private TableView<Movie> table;
@@ -35,11 +33,7 @@ public class CustomerMenuController extends ChangeController {
                     UserService.findMovie(cellData.getValue().getName()).getName()
             );
         });
-        GenreColumn.setCellValueFactory(cellData -> {
-            return new SimpleStringProperty(
-                    UserService.findMovie(cellData.getValue().getName()).getGenre()
-            );
-        });
+
         DescriptionColumn.setCellValueFactory(cellData -> {
             return new SimpleStringProperty(
                     UserService.findMovie(cellData.getValue().getName()).getDescription()
