@@ -14,7 +14,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Objects;
-import java.util.List;
 import static services.FileSystemService.getPathToFile;
 import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
@@ -32,6 +31,10 @@ public final class UserService {
                 .openOrCreate();
         userRepository = database.getRepository(User.class);
         movieRepository = database.getRepository(Movie.class);
+    }
+
+    public static List<User> getAllUsers() {
+        return userRepository.find().toList();
     }
 
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
@@ -143,7 +146,7 @@ public final class UserService {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
